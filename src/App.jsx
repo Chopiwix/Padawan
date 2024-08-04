@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Login from "./components/login";
+import Signup  from "./components/register";
 import api from "./utils/api";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Login onLogin={fetchUserData} />
+      <Signup/>
     </>
   );
 }

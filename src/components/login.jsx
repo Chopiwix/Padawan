@@ -1,17 +1,16 @@
+import "../style.css";
 import { useEffect, useState } from "react";
-import * as auth from "../utils/auth";
-
 export default function Login(props) {
+  const [email, setCurrentEmail] = useState("");
+  // eslint-disable-next-line react/prop-types, no-unused-vars
   const { onLogin } = props;
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [password, setCurrentPassword] = useState("");
   const handleChangeLogin = async (e) => {
     const { name, value } = e.target;
-    if (name === "email") setEmail(value);
-    if (name === "password") setPassword(value);
+    if (name === "email") setCurrentEmail(value);
+    if (name === "password") setCurrentPassword(value);
   };
-
+  
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
 
@@ -53,7 +52,7 @@ export default function Login(props) {
         </div>
 
         <div className="contenedor__login-register">
-          <form onSubmit={handleSubmitLogin} className="formulario__login">
+          <form onSubmit={""} className="formulario__login">
             <h2>Iniciar sesión</h2>
             <input
               type="email"
@@ -61,7 +60,7 @@ export default function Login(props) {
               className="ControlInput ControlInput--email"
               placeholder="Correo Electrónico"
               spellCheck="false"
-              value={email}
+              value={""}
               onChange={handleChangeLogin}
             />
             <i className="uil uil-envelope email-icon"></i>
@@ -69,7 +68,7 @@ export default function Login(props) {
               type="password"
               name="password"
               placeholder="Contraseña"
-              value={password}
+              value={""}
               onChange={handleChangeLogin}
             />
             <button type="submit">Entrar</button>
